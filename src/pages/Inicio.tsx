@@ -4,12 +4,16 @@ import PopularOffers from "../components/PopularOffers";
 import PaymentAndProfile from "../components/PaymentAndProfile";
 import Footer from "../components/Footer";
 
-export default function Inicio() {
+interface InicioProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function Inicio({ onNavigate }: InicioProps) {
   return (
     <div className="min-h-screen">
       <main>
         <HeroSection />
-        <ServicesSection />
+        <ServicesSection onNavigate={onNavigate} />
         <PopularOffers />
         <PaymentAndProfile />
       </main>

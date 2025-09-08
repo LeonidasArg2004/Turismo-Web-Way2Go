@@ -2,47 +2,24 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Truck, Hotel, Utensils, Theater, Leaf } from "lucide-react";
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function ServicesSection({ onNavigate }: ServicesSectionProps) {
   const services = [
-    {
-      icon: Truck,
-      title: "Transporte confiable",
-      description: "Transfers, tours y transporte seguro a todos los destinos",
-      emoji: "🚐"
-    },
-    {
-      icon: Hotel,
-      title: "Hospedaje seguro",
-      description: "Hoteles, hostales y alojamientos verificados",
-      emoji: "🏨"
-    },
-    {
-      icon: Utensils,
-      title: "Restaurantes locales",
-      description: "Descubre la gastronomía auténtica nicaragüense",
-      emoji: "🍴"
-    },
-    {
-      icon: Theater,
-      title: "Experiencias culturales",
-      description: "Museos, arte, música y tradiciones locales",
-      emoji: "🎭"
-    },
-    {
-      icon: Leaf,
-      title: "Turismo rural comunitario",
-      description: "Conecta con comunidades y naturaleza",
-      emoji: "🌱"
-    }
+    { icon: Truck, title: "Transporte Confiable", description: "Transfers, tours y transporte seguro a todos los destinos", emoji: "🚐" },
+    { icon: Hotel, title: "Hospedaje seguro", description: "Hoteles, hostales y alojamientos verificados", emoji: "🏨" },
+    { icon: Utensils, title: "Restaurantes locales", description: "Descubre la gastronomía auténtica nicaragüense", emoji: "🍴" },
+    { icon: Theater, title: "Experiencias culturales", description: "Museos, arte, música y tradiciones locales", emoji: "🎭" },
+    { icon: Leaf, title: "Turismo rural comunitario", description: "Conecta con comunidades y naturaleza", emoji: "🌱" },
   ];
 
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl mb-4">
-            Servicios Destacados
-          </h2>
+          <h2 className="text-3xl md:text-4xl mb-4">Servicios Destacados</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Todo lo que necesitas para una experiencia única en Nicaragua
           </p>
@@ -61,10 +38,18 @@ export default function ServicesSection() {
                     <IconComponent className="h-6 w-6 text-primary mx-auto" />
                   </div>
                   <h3 className="mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {service.description}
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full">
+                  <p className="text-sm text-gray-600 mb-4">{service.description}</p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => {
+                      if (service.title === "Transporte Confiable") {
+                        onNavigate("Transporte Confiable");
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                  >
                     Explorar
                   </Button>
                 </CardContent>

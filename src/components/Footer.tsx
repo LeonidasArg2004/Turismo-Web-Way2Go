@@ -4,6 +4,7 @@ import { Separator } from "./ui/separator";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import way2GoLogo from 'figma:asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png';
 
+
 export default function Footer() {
   const quickLinks = [
     "Inicio",

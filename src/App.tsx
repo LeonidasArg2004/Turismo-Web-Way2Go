@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 
-// Importar todas las páginas
+// Páginas
 import Inicio from "./pages/Inicio";
 import RutasTuristicas from "./pages/RutasTuristicas";
 import Transporte from "./pages/Transporte";
@@ -15,38 +15,35 @@ import Contacto from "./pages/Contacto";
 import AcercaDe from "./pages/AcercaDe";
 import Ofertas from "./pages/Ofertas";
 import FAQ from "./pages/FAQ";
+import TransporteConfiable from "./pages/TransporteConfiable";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("Inicio");
 
-  // Escuchar cambios en la URL
+  // Escuchar cambios en URL
   useEffect(() => {
     const handlePopState = () => {
-      const page = new URLSearchParams(window.location.search).get('page') || 'Inicio';
+      const page = new URLSearchParams(window.location.search).get("page") || "Inicio";
       setCurrentPage(page);
     };
+    window.addEventListener("popstate", handlePopState);
 
-    window.addEventListener('popstate', handlePopState);
-    
-    // Establecer página inicial basada en URL
-    const initialPage = new URLSearchParams(window.location.search).get('page') || 'Inicio';
+    const initialPage = new URLSearchParams(window.location.search).get("page") || "Inicio";
     setCurrentPage(initialPage);
 
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // Función para cambiar páginas
   const navigateToPage = (page: string) => {
     setCurrentPage(page);
-    const url = page === 'Inicio' ? '/' : `/?page=${encodeURIComponent(page)}`;
-    window.history.pushState(null, '', url);
+    const url = page === "Inicio" ? "/" : `/?page=${encodeURIComponent(page)}`;
+    window.history.pushState(null, "", url);
   };
 
-  // Renderizar la página actual
   const renderCurrentPage = () => {
     switch (currentPage) {
       case "Inicio":
-        return <Inicio />;
+        return <Inicio onNavigate={navigateToPage} />;
       case "Rutas Turísticas":
         return <RutasTuristicas />;
       case "Transporte":
@@ -71,18 +68,18 @@ export default function App() {
         return <Ofertas />;
       case "FAQ":
         return <FAQ />;
+      case "Transporte Confiable":
+        return <TransporteConfiable />;
       default:
-        return <Inicio />;
+        return <Inicio onNavigate={navigateToPage} />;
     }
   };
 
-  // Páginas que no deben mostrar el header
   const pagesWithoutHeader = ["Inicio de Sesión", "Registro"];
   const showHeader = !pagesWithoutHeader.includes(currentPage);
 
   return (
     <div className="min-h-screen">
-      {/* Mostrar Header solo en páginas que lo necesiten */}
       {showHeader && <Header currentPage={currentPage} onNavigate={navigateToPage} />}
       {renderCurrentPage()}
     </div>
