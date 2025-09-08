@@ -44,10 +44,30 @@ export default function ServicesSection({ onNavigate }: ServicesSectionProps) {
                     size="sm"
                     className="w-full"
                     onClick={() => {
-                      if (service.title === "Transporte Confiable") {
-                        onNavigate("Transporte Confiable");
-                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      let pageToNavigate = "";
+                      
+                      switch (service.title) {
+                        case "Transporte Confiable":
+                          pageToNavigate = "Transporte Confiable";
+                          break;
+                        case "Hospedaje seguro":
+                          pageToNavigate = "Hospedaje & Restaurantes";
+                          break;
+                        case "Restaurantes locales":
+                          pageToNavigate = "Hospedaje & Restaurantes";
+                          break;
+                        case "Experiencias culturales":
+                          pageToNavigate = "Experiencias";
+                          break;
+                        case "Turismo rural comunitario":
+                          pageToNavigate = "Turismo Rural";
+                          break;
+                        default:
+                          return;
                       }
+                      
+                      onNavigate(pageToNavigate);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >
                     Explorar
