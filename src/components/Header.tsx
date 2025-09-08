@@ -1,73 +1,93 @@
 import { Button } from "./ui/button";
 import { Menu, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Link } from "react-router-dom"; 
-import way2GoLogo from '../assets/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png';
+import way2GoLogo from 'figma:asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png';
 
-export default function Header() {
+interface HeaderProps {
+  currentPage: string;
+  onNavigate: (page: string) => void;
+}
+
+export default function Header({ currentPage, onNavigate }: HeaderProps) {
   const menuItems = [
-    { name: "Inicio", path: "/" },
-    { name: "Rutas Turísticas", path: "/rutas-turisticas" },
-    { name: "Transporte", path: "/transporte" },
-    { name: "Hospedaje & Restaurantes", path: "/hospedaje-restaurantes" },
-    { name: "Experiencias", path: "/experiencias" },
-    { name: "Turismo Rural", path: "/turismo-rural" },
-    { name: "Mi Cuenta", path: "/mi-cuenta" },
+    "Rutas Turísticas", 
+    "Transporte",
+    "Hospedaje & Restaurantes",
+    "Experiencias",
+    "Turismo Rural"
   ];
 
-  const handleNavClick = (item: string, path: string, e: React.MouseEvent) => {
-    if (item === "Inicio") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  const handleNavClick = (item: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(item);
+    // Scroll to top when navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLoginClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate("Inicio de Sesión");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleReserveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate("Ofertas");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate("Inicio");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div 
+            className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={handleLogoClick}
+          >
             <img 
               src={way2GoLogo} 
               alt="Way2Go Logo" 
               className="h-12 w-auto"
             />
             <div className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">Way</span>
-              <span className="text-xl font-bold text-green-600">2</span>
-              <span className="text-xl font-bold text-red-500">Go</span>
+              <span className="text-xl font-bold" style={{ color: '#1E90FF' }}>Way</span>
+              <span className="text-xl font-bold" style={{ color: '#32CD32' }}>2</span>
+              <span className="text-xl font-bold" style={{ color: '#FF6347' }}>Go</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={(e) => handleNavClick(item.name, item.path, e)}
-                className="text-sm hover:text-primary transition-colors cursor-pointer"
+              <a 
+                key={item}
+                href="#" 
+                onClick={(e) => handleNavClick(item, e)}
+                className={`text-sm hover:text-primary transition-colors cursor-pointer ${
+                  currentPage === item ? 'text-primary font-medium' : ''
+                }`}
               >
-                {item.name}
-              </Link>
+                {item}
+              </a>
             ))}
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/mi-cuenta">
-              <Button variant="ghost" size="sm">
-                <User className="h-4 w-4 mr-2" />
-                Mi Cuenta
-              </Button>
-            </Link>
-            <Link to="/ofertas">
-              <Button size="sm" className="bg-primary">
-                Reservar Ahora
-              </Button>
-            </Link>
+            <Button variant="ghost" size="sm" onClick={handleLoginClick}>
+              <User className="h-4 w-4 mr-2" />
+              Iniciar Sesión
+            </Button>
+            <Button size="sm" className="bg-primary" onClick={handleReserveClick}>
+              Reservar Ahora
+            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -80,27 +100,25 @@ export default function Header() {
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
                 {menuItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={(e) => handleNavClick(item.name, item.path, e)}
-                    className="text-base hover:text-primary transition-colors cursor-pointer"
+                  <a 
+                    key={item}
+                    href="#" 
+                    onClick={(e) => handleNavClick(item, e)}
+                    className={`text-base hover:text-primary transition-colors cursor-pointer ${
+                      currentPage === item ? 'text-primary font-medium' : ''
+                    }`}
                   >
-                    {item.name}
-                  </Link>
+                    {item}
+                  </a>
                 ))}
                 <div className="pt-4 border-t">
-                  <Link to="/mi-cuenta">
-                    <Button variant="ghost" className="w-full justify-start mb-2">
-                      <User className="h-4 w-4 mr-2" />
-                      Mi Cuenta
-                    </Button>
-                  </Link>
-                  <Link to="/ofertas">
-                    <Button className="w-full bg-primary">
-                      Reservar Ahora
-                    </Button>
-                  </Link>
+                  <Button variant="ghost" className="w-full justify-start mb-2" onClick={handleLoginClick}>
+                    <User className="h-4 w-4 mr-2" />
+                    Iniciar Sesión
+                  </Button>
+                  <Button className="w-full bg-primary" onClick={handleReserveClick}>
+                    Reservar Ahora
+                  </Button>
                 </div>
               </div>
             </SheetContent>

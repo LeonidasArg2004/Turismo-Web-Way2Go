@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -55,7 +54,6 @@ export default function HospedajeRestaurantes() {
 
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="pt-16">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">

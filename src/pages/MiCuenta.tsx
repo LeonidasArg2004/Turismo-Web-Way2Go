@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -51,7 +50,6 @@ export default function MiCuenta() {
 
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="pt-16 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">

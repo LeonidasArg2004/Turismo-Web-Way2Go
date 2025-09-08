@@ -1,51 +1,90 @@
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import ServicesSection from "./components/ServicesSection";
-import PopularOffers from "./components/PopularOffers";
-import PaymentAndProfile from "./components/PaymentAndProfile";
-import Footer from "./components/Footer";
-//Páginas
+
+// Importar todas las páginas
 import Inicio from "./pages/Inicio";
-import InicioSesion from "./pages/InicioSesion";
-import Registro from "./pages/Registro";
-import MiCuenta from "./pages/MiCuenta";
-import AcercaDe from "./pages/AcercaDe";
-import Contacto from "./pages/Contacto";
-import Experiencias from "./pages/Experiencias";
-import FAQ from "./pages/FAQ";
-import HospedajeRestaurantes from "./pages/HospedajeRestaurante";
-import Ofertas from "./pages/Ofertas";
 import RutasTuristicas from "./pages/RutasTuristicas";
 import Transporte from "./pages/Transporte";
+import HospedajeRestaurantes from "./pages/HospedajeRestaurante";
+import Experiencias from "./pages/Experiencias";
 import TurismoRural from "./pages/TurismoRural";
+import MiCuenta from "./pages/MiCuenta";
+import InicioSesion from "./pages/InicioSesion";
+import Registro from "./pages/Registro";
+import Contacto from "./pages/Contacto";
+import AcercaDe from "./pages/AcercaDe";
+import Ofertas from "./pages/Ofertas";
+import FAQ from "./pages/FAQ";
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState("Inicio");
+
+  // Escuchar cambios en la URL
+  useEffect(() => {
+    const handlePopState = () => {
+      const page = new URLSearchParams(window.location.search).get('page') || 'Inicio';
+      setCurrentPage(page);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    // Establecer página inicial basada en URL
+    const initialPage = new URLSearchParams(window.location.search).get('page') || 'Inicio';
+    setCurrentPage(initialPage);
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Función para cambiar páginas
+  const navigateToPage = (page: string) => {
+    setCurrentPage(page);
+    const url = page === 'Inicio' ? '/' : `/?page=${encodeURIComponent(page)}`;
+    window.history.pushState(null, '', url);
+  };
+
+  // Renderizar la página actual
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case "Inicio":
+        return <Inicio />;
+      case "Rutas Turísticas":
+        return <RutasTuristicas />;
+      case "Transporte":
+        return <Transporte />;
+      case "Hospedaje & Restaurantes":
+        return <HospedajeRestaurantes />;
+      case "Experiencias":
+        return <Experiencias />;
+      case "Turismo Rural":
+        return <TurismoRural />;
+      case "Mi Cuenta":
+        return <MiCuenta />;
+      case "Inicio de Sesión":
+        return <InicioSesion onNavigate={navigateToPage} />;
+      case "Registro":
+        return <Registro onNavigate={navigateToPage} />;
+      case "Contacto":
+        return <Contacto />;
+      case "Acerca de":
+        return <AcercaDe />;
+      case "Ofertas":
+        return <Ofertas />;
+      case "FAQ":
+        return <FAQ />;
+      default:
+        return <Inicio />;
+    }
+  };
+
+  // Páginas que no deben mostrar el header
+  const pagesWithoutHeader = ["Inicio de Sesión", "Registro"];
+  const showHeader = !pagesWithoutHeader.includes(currentPage);
+
   return (
     <div className="min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/rutas-turisticas" element={<RutasTuristicas />} />
-          <Route path="/transporte" element={<Transporte />} />
-          <Route path="/hospedaje-restaurantes" element={<HospedajeRestaurantes />} />
-          <Route path="/experiencias" element={<Experiencias />} />
-          <Route path="/turismo-rural" element={<TurismoRural />} />
-          <Route path="/mi-cuenta" element={<MiCuenta />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/inicio-sesion" element={<InicioSesion />} />
-          <Route path="/ofertas" element={<Ofertas />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/acerca-de" element={<AcercaDe />} />
-        </Routes>
-        <HeroSection />
-        <ServicesSection />
-        <PopularOffers />
-        <PaymentAndProfile />
-      </main>
-      <Footer />
+      {/* Mostrar Header solo en páginas que lo necesiten */}
+      {showHeader && <Header currentPage={currentPage} onNavigate={navigateToPage} />}
+      {renderCurrentPage()}
     </div>
   );
 }

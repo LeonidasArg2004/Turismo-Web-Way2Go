@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -91,7 +90,6 @@ export default function Ofertas() {
 
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="pt-16">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-16">
