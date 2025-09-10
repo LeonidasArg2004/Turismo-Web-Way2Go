@@ -31,9 +31,9 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Service Type */}
             <div className="space-y-2">
-              <label className="text-sm text-gray-600">¿Qué buscas?</label>
+              <label className="w-full pl-10 text-sm text-gray-600">¿Qué buscas?</label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full text-sm text-gray-600">
                   <SelectValue placeholder="Seleccionar servicio" />
                 </SelectTrigger>
                 <SelectContent>
@@ -50,19 +50,39 @@ export default function HeroSection() {
             <div className="space-y-2">
               <label className="text-sm text-gray-600">Destino</label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input 
-                  placeholder="¿A dónde vamos?" 
-                  className="pl-10"
-                />
+                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-600" />
+                <Select>                  
+                 <SelectTrigger className="w-full pl-10 text-sm text-gray-600">
+                   <SelectValue placeholder="¿A dónde vamos?" />
+                 </SelectTrigger>
+                 <SelectContent>
+                  <SelectItem value="granada">Granada</SelectItem>
+                  <SelectItem value="san-juan-del-sur">San Juan del Sur</SelectItem>
+                  <SelectItem value="leon">León</SelectItem>
+                  <SelectItem value="managua">Managua</SelectItem>
+                  <SelectItem value="masaya">Masaya</SelectItem>
+                  <SelectItem value="esteli">Estelí</SelectItem>
+                  <SelectItem value="matagalpa">Matagalpa</SelectItem>
+                  <SelectItem value="rivas">Rivas</SelectItem>
+                  <SelectItem value="chinandega">Chinandega</SelectItem>
+                  <SelectItem value="chontales">Chontales</SelectItem>
+                  <SelectItem value="bluefields">Bluefields</SelectItem>
+                  <SelectItem value="boaco">Boaco</SelectItem>
+                  <SelectItem value="carazo">Carazo</SelectItem>
+                  <SelectItem value="jinotega">Jinotega</SelectItem>
+                  <SelectItem value="madriz">Madriz</SelectItem>
+                  <SelectItem value="nueva-segovia">Nueva Segovia</SelectItem>
+                  <SelectItem value="puerto-cabezas">Puerto Cabezas</SelectItem>
+                 </SelectContent>
+               </Select>
               </div>
             </div>
 
             {/* Dates */}
             <div className="space-y-2">
               <label className="text-sm text-gray-600">Fechas</label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <div className="text-sm text-gray-600">
+                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-600" />
                 <Input 
                   type="date"
                   className="pl-10"

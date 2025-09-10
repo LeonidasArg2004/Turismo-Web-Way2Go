@@ -69,7 +69,12 @@ export default function TurismoRural() {
     <div className="min-h-screen">
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-green-700 to-green-500 text-white py-16">
+        <section 
+          className="text-white py-16"
+          style={{
+            background: `linear-gradient(to right, #0cc334ff, #0cf39aff,  #0cf3ccff)`
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center">
               <h1 className="mb-4">Turismo Rural</h1>
@@ -89,8 +94,14 @@ export default function TurismoRural() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {beneficios.map((beneficio, index) => (
                 <div key={index} className="text-center">
-                  <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <beneficio.icono className="h-8 w-8 text-green-600" />
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style={{ backgroundColor: '#E6F7E6' }}
+                  >
+                    <beneficio.icono 
+                      className="h-8 w-8" 
+                      style={{ color: '#32CD32' }}
+                    />
                   </div>
                   <h3 className="mb-2">{beneficio.titulo}</h3>
                   <p className="text-gray-600 text-sm">{beneficio.descripcion}</p>
@@ -114,7 +125,12 @@ export default function TurismoRural() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 left-4 flex gap-2">
-                      <Badge className="bg-green-100 text-green-800">Rural</Badge>
+                      <Badge 
+                        className="text-white"
+                        style={{ backgroundColor: '#32CD32' }}
+                      >
+                        Rural
+                      </Badge>
                       <Badge className="bg-white/90 text-gray-800">Sostenible</Badge>
                     </div>
                     <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 rounded flex items-center gap-1">
@@ -139,7 +155,12 @@ export default function TurismoRural() {
                         {experiencia.duracion}
                       </div>
                       <div className="text-right">
-                        <span className="text-xl text-green-600">{experiencia.precio}</span>
+                        <span 
+                          className="text-xl"
+                          style={{ color: '#32CD32' }}
+                        >
+                          {experiencia.precio}
+                        </span>
                       </div>
                     </div>
                     
@@ -159,14 +180,22 @@ export default function TurismoRural() {
                       <ul className="text-xs text-gray-600 space-y-1">
                         {experiencia.beneficios.map((beneficio, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                            <div 
+                              className="w-1 h-1 rounded-full"
+                              style={{ backgroundColor: '#32CD32' }}
+                            ></div>
                             {beneficio}
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <Button className="w-full">Reservar Experiencia</Button>
+                    <Button 
+                      className="w-full text-white"
+                      style={{ backgroundColor: '#1E90FF' }}
+                    >
+                      Reservar Experiencia
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -175,7 +204,10 @@ export default function TurismoRural() {
         </section>
 
         {/* Compromiso */}
-        <section className="py-16 bg-green-50">
+        <section 
+          className="py-16"
+          style={{ backgroundColor: '#F0FDF4' }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="mb-6">Nuestro Compromiso</h2>
@@ -187,15 +219,30 @@ export default function TurismoRural() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-3xl text-green-600 mb-2">85%</div>
+                  <div 
+                    className="text-3xl mb-2"
+                    style={{ color: '#32CD32' }}
+                  >
+                    85%
+                  </div>
                   <p className="text-sm text-gray-600">De ingresos van a la comunidad</p>
                 </div>
                 <div>
-                  <div className="text-3xl text-green-600 mb-2">12</div>
+                  <div 
+                    className="text-3xl mb-2"
+                    style={{ color: '#32CD32' }}
+                  >
+                    12
+                  </div>
                   <p className="text-sm text-gray-600">Comunidades beneficiadas</p>
                 </div>
                 <div>
-                  <div className="text-3xl text-green-600 mb-2">500+</div>
+                  <div 
+                    className="text-3xl mb-2"
+                    style={{ color: '#32CD32' }}
+                  >
+                    500+
+                  </div>
                   <p className="text-sm text-gray-600">Familias apoyadas directamente</p>
                 </div>
               </div>

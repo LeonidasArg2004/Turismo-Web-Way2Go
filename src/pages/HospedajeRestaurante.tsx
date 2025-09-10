@@ -56,7 +56,12 @@ export default function HospedajeRestaurantes() {
     <div className="min-h-screen">
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
+        <section 
+          className="text-white py-16"
+          style={{
+            background: `linear-gradient(to right, #1E90FF, #32CD32)`
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center">
               <h1 className="mb-4">Hospedaje & Restaurantes</h1>
@@ -100,7 +105,12 @@ export default function HospedajeRestaurantes() {
                     <Input type="date" />
                   </div>
                   <div className="flex items-end">
-                    <Button className="w-full">Buscar</Button>
+                    <Button 
+                      className="w-full text-white"
+                      style={{ backgroundColor: '#1E90FF' }}
+                    >
+                      Buscar
+                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -164,7 +174,12 @@ export default function HospedajeRestaurantes() {
                             </Badge>
                           ))}
                         </div>
-                        <Button className="w-full">Ver Disponibilidad</Button>
+                        <Button 
+                          className="w-full text-white"
+                          style={{ backgroundColor: '#32CD32' }}
+                        >
+                          Ver Disponibilidad
+                        </Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -208,7 +223,12 @@ export default function HospedajeRestaurantes() {
                         <p className="text-sm text-gray-600 mb-4">
                           <strong>Especialidad:</strong> {restaurante.especialidad}
                         </p>
-                        <Button className="w-full">Ver Menú</Button>
+                        <Button 
+                          className="w-full text-white"
+                          style={{ backgroundColor: '#FF6347' }}
+                        >
+                          Ver Menú
+                        </Button>
                       </CardContent>
                     </Card>
                   ))}
