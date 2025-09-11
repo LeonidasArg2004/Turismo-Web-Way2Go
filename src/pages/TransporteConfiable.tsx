@@ -62,7 +62,7 @@ export default function TransporteConfiable() {
       <main className="pt-20">
         {/* Hero Section */}
         <section 
-          className="relative text-white py-20"
+          className="relative text-white py-16"
           style={{
             background: 'linear-gradient(135deg, #1E90FF 0%, #32CD32 50%, #FF6347 100%)'
           }}
@@ -81,7 +81,7 @@ export default function TransporteConfiable() {
                 <Calendar className="h-5 w-5 mr-2" />
                 Reservar Ahora
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+              <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-blue-600">
                 <Phone className="h-5 w-5 mr-2" />
                 Contactar
               </Button>

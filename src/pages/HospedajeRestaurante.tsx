@@ -13,13 +13,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 export default function HospedajeRestaurantes() {
   const [activeTab, setActiveTab] = useState("hospedaje");
 
-  useEffect(() => {
-
-    // se verifca si hay un hash en la URL para determinar qué tab mostrar
-    // esto hace que la locacion del explorar  lleve a una dreccion mas exacta 
-    // del lugar en donde desees ingresar
-    //en pocas palabras el problema estaba en la  implementacion del hash
-    
+  useEffect(() => {    
     const hash = window.location.hash.replace('#', '');
     if (hash === 'restaurantes') {
       setActiveTab('restaurantes');
@@ -54,6 +48,87 @@ export default function HospedajeRestaurantes() {
       imagen: "https://images.unsplash.com/photo-1711989874705-bb85dc205541?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBob3RlbCUyMHJlc3RhdXJhbnQlMjBmb29kfGVufDF8fHx8MTc1NzQzNjc3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       ubicacion: "León",
       servicios: ["Centro histórico", "Terraza panorámica", "WiFi", "A/C"]
+    },
+    {
+      nombre: "Resort Playa Montelimar",
+      categoria: "Resort Playa",
+      precio: "$180/noche",
+      rating: 4.9,
+      imagen: "https://images.unsplash.com/photo-1615121864762-c5db0315fb16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBiZWFjaCUyMHJlc29ydCUyMGhvdGVsfGVufDF8fHx8MTc1NzU3MjY1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Montelimar, Managua",
+      servicios: ["Playa privada", "Spa", "3 Restaurantes", "Golf"]
+    },
+    {
+      nombre: "Casa San Francisco",
+      categoria: "Boutique",
+      precio: "$110/noche",
+      rating: 4.8,
+      imagen: "https://images.unsplash.com/photo-1664231323799-84a7ef527992?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZW50cmFsJTIwYW1lcmljYSUyMGJvdXRpcXVlJTIwaG90ZWx8ZW58MXx8fHwxNzU3NTcyNjU5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "San Juan del Sur",
+      servicios: ["Vista al mar", "Yoga", "Biblioteca", "Terraza"]
+    },
+    {
+      nombre: "Hotel Laguna de Apoyo",
+      categoria: "Eco-resort",
+      precio: "$140/noche",
+      rating: 4.7,
+      imagen: "https://images.unsplash.com/photo-1714991103332-4271fcee7bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBsYWtlJTIwaG90ZWwlMjBsb2RnZXxlbnwxfHx8fDE3NTc1NzI2NjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Laguna de Apoyo, Masaya",
+      servicios: ["Lago volcánico", "Buceo", "Canopy", "Masajes"]
+    },
+    {
+      nombre: "Hotel Paradise Tropical",
+      categoria: "Resort",
+      precio: "$160/noche",
+      rating: 4.6,
+      imagen: "https://images.unsplash.com/photo-1567491634123-460945ea86dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGhvdGVsJTIwcG9vbCUyMG5pY2FyYWd1YXxlbnwxfHx8fDE3NTc1NzI2NjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Corn Island",
+      servicios: ["2 Piscinas", "Beach club", "Snorkel", "Bar flotante"]
+    },
+    {
+      nombre: "Finca Vista Hermosa",
+      categoria: "Hacienda",
+      precio: "$75/noche",
+      rating: 4.5,
+      imagen: "https://images.unsplash.com/photo-1745208098930-cf0cf811aa07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBtb3VudGFpbiUyMGhvdGVsJTIwdmlld3xlbnwxfHx8fDE3NTc1NzI2NjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Matagalpa",
+      servicios: ["Montañas", "Café orgánico", "Senderismo", "Cabalgatas"]
+    },
+    {
+      nombre: "Hotel Darío",
+      categoria: "Histórico",
+      precio: "$90/noche",
+      rating: 4.4,
+      imagen: "https://images.unsplash.com/photo-1685135971687-c16b284c1784?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvbmlhbCUyMGhvdGVsJTIwY2VudHJhbCUyMGFtZXJpY2F8ZW58MXx8fHwxNzU3NTcyNjY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "León",
+      servicios: ["Arquitectura colonial", "Museo", "Café", "Tours"]
+    },
+    {
+      nombre: "Selva Negra Mountain Resort",
+      categoria: "Eco-lodge",
+      precio: "$130/noche",
+      rating: 4.8,
+      imagen: "https://images.unsplash.com/photo-1742605633046-4cd50779bc97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBjb2ZmZWUlMjBwbGFudGF0aW9uJTIwaG90ZWx8ZW58MXx8fHwxNzU3NTcyNjY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Matagalpa",
+      servicios: ["Café orgánico", "Bosque nuboso", "Observación aves", "Eco-tours"]
+    },
+    {
+      nombre: "Hotel Intercontinental",
+      categoria: "Lujo",
+      precio: "$200/noche",
+      rating: 4.9,
+      imagen: "https://images.unsplash.com/photo-1567491634123-460945ea86dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGhvdGVsJTIwcG9vbCUyMG5pY2FyYWd1YXxlbnwxfHx8fDE3NTc1NzI2NjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Managua",
+      servicios: ["Centro business", "Spa", "4 Restaurantes", "Casino"]
+    },
+    {
+      nombre: "Little Corn Beach Bungalow",
+      categoria: "Cabaña",
+      precio: "$65/noche",
+      rating: 4.3,
+      imagen: "https://images.unsplash.com/photo-1615121864762-c5db0315fb16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBiZWFjaCUyMHJlc29ydCUyMGhvdGVsfGVufDF8fHx8MTc1NzU3MjY1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Little Corn Island",
+      servicios: ["Playa virgen", "Buceo", "Hammocks", "Restaurante"]
     }
   ];
 
@@ -84,6 +159,87 @@ export default function HospedajeRestaurantes() {
       imagen: "https://images.unsplash.com/photo-1711989874705-bb85dc205541?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBob3RlbCUyMHJlc3RhdXJhbnQlMjBmb29kfGVufDF8fHx8MTc1NzQzNjc3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       ubicacion: "Managua",
       especialidad: "Indio Viejo, Quesillo, Sopa de Mondongo"
+    },
+    {
+      nombre: "Mariscos El Tiburón",
+      tipo: "Mariscos",
+      precio: "$$",
+      rating: 4.6,
+      imagen: "https://images.unsplash.com/photo-1652458316645-07971d6e52ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjB0cmFkaXRpb25hbCUyMHJlc3RhdXJhbnQlMjBmb29kfGVufDF8fHx8MTc1NzU3MjY2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "San Juan del Sur",
+      especialidad: "Langosta, Pargo rojo, Ceviche mixto"
+    },
+    {
+      nombre: "Terraza Colonial",
+      tipo: "Internacional",
+      precio: "$$",
+      rating: 4.8,
+      imagen: "https://images.unsplash.com/photo-1688287398986-3d6dcd55ef8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXRpbiUyMGFtZXJpY2FuJTIwcmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8fHx8MTc1NzU3MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "León",
+      especialidad: "Fusión Nicaragua-Europa, Steaks, Vista panorámica"
+    },
+    {
+      nombre: "Pescadería La Sirena",
+      tipo: "Mariscos",
+      precio: "$",
+      rating: 4.5,
+      imagen: "https://images.unsplash.com/photo-1651126179043-f94b62006243?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWFmb29kJTIwcmVzdGF1cmFudCUyMG5pY2FyYWd1YXxlbnwxfHx8fDE3NTc1NzI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Corn Island",
+      especialidad: "Pescado frito, Rondon, Caracola"
+    },
+    {
+      nombre: "Antojitos Nica",
+      tipo: "Comida Rápida",
+      precio: "$",
+      rating: 4.4,
+      imagen: "https://images.unsplash.com/photo-1639363885736-bb4d797175e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZW50cmFsJTIwYW1lcmljYSUyMHN0cmVldCUyMGZvb2R8ZW58MXx8fHwxNzU3NTcyNjYyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Managua",
+      especialidad: "Tajadas, Baho, Güirila con queso"
+    },
+    {
+      nombre: "Mirador del Volcán",
+      tipo: "Cocina Internacional",
+      precio: "$$",
+      rating: 4.7,
+      imagen: "https://images.unsplash.com/photo-1696626605347-20148794d9ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjByb29mdG9wJTIwcmVzdGF1cmFudHxlbnwxfHx8fDE3NTc1NzI2NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Masaya",
+      especialidad: "Vista al volcán, Parrillas, Cocteles artesanales"
+    },
+    {
+      nombre: "Pizzería Don Bosco",
+      tipo: "Italiana",
+      precio: "$",
+      rating: 4.6,
+      imagen: "https://images.unsplash.com/photo-1689915972091-debe902f72fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBwaXp6YSUyMHJlc3RhdXJhbnR8ZW58MXx8fHwxNzU3NTcyNjY3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Granada",
+      especialidad: "Pizza artesanal, Pasta fresca, Tiramisu"
+    },
+    {
+      nombre: "Restaurante Playa Azul",
+      tipo: "Cocina Playera",
+      precio: "$",
+      rating: 4.5,
+      imagen: "https://images.unsplash.com/photo-1651126179043-f94b62006243?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBiZWFjaCUyMHJlc3RhdXJhbnR8ZW58MXx8fHwxNTc1NzI2NjckMA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Montelimar",
+      especialidad: "Pescado a la plancha, Cocteles tropicales, Vista al mar"
+    },
+    {
+      nombre: "Café Mombacho",
+      tipo: "Café Especialidad",
+      precio: "$",
+      rating: 4.8,
+      imagen: "https://images.unsplash.com/photo-1617343772441-5e40418d4139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBjYWZlJTIwY29mZmVlJTIwc2hvcCUyMHRyYWRpdGlvbmFsfGVufDF8fHx8MTc1NzQzNjc4OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Managua",
+      especialidad: "Café orgánico Mombacho, Repostería francesa, Brunch"
+    },
+    {
+      nombre: "El Ranchón Típico",
+      tipo: "Cocina Típica",
+      precio: "$",
+      rating: 4.7,
+      imagen: "https://images.unsplash.com/photo-1652458316645-07971d6e52ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjB0cmFkaXRpb25hbCUyMHJlc3RhdXJhbnQlMjBmb29kfGVufDF8fHx8MTc1NzU3MjY2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      ubicacion: "Estelí",
+      especialidad: "Chancho con yuca, Caballo bayo, Chicharrón"
     }
   ];
 
@@ -94,7 +250,7 @@ export default function HospedajeRestaurantes() {
         <section 
           className="text-white py-16"
           style={{
-            background: `linear-gradient(to right, #1E90FF, #32CD32)`
+            background: `linear-gradient(to right, #f47d0eff, #ed3737ff)`
           }}
         >
           <div className="container mx-auto px-4">
@@ -178,7 +334,7 @@ export default function HospedajeRestaurantes() {
 
               {/* Hoteles */}
               <TabsContent value="hospedaje">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
                   {hoteles.map((hotel, index) => (
                     <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
                       <div className="relative h-56 overflow-hidden">
@@ -228,7 +384,7 @@ export default function HospedajeRestaurantes() {
 
               {/* Restaurantes */}
               <TabsContent value="restaurantes">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
                   {restaurantes.map((restaurante, index) => (
                     <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
                       <div className="relative h-56 overflow-hidden">

@@ -20,8 +20,8 @@ export default function TurismoRural() {
     },
     {
       titulo: "Comunidad Rural San Juan de Limay",
-      descripción: "Descubre la artesanía tradicional en mármol y soapstone",
-      imagen: "https://images.unsplash.com/photo-1742320086662-56a3c278734b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBydXJhbCUyMGZhcm0lMjBjb2ZmZWUlMjBwbGFudGF0aW9ufGVufDF8fHx8MTc1NzE4OTgxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      descripcion: "Descubre la artesanía tradicional en mármol y soapstone",
+      imagen: "https://images.unsplash.com/photo-1719852255246-898f965e04e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjB0cmFkaXRpb25hbCUyMGNyYWZ0cyUyMHBvdHRlcnl8ZW58MXx8fHwxNzU3NTc0NDA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       ubicacion: "Estelí",
       duracion: "1 día",
       precio: "$65/persona",
@@ -32,13 +32,112 @@ export default function TurismoRural() {
     {
       titulo: "Granja Orgánica La Esperanza",
       descripcion: "Aprende sobre agricultura sostenible y permacultura",
-      imagen: "https://images.unsplash.com/photo-1742320086662-56a3c278734b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBydXJhbCUyMGZhcm0lMjBjb2ZmZWUlMjBwbGFudGF0aW9ufGVufDF8fHx8MTc1NzE4OTgxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      imagen: "https://images.unsplash.com/photo-1679824244521-6d2c7ae496e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBvcmdhbmljJTIwZmFybSUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc1NzU3NDQwMHww&ixlib=rb-4.1.0&q=80&w=1080",
       ubicacion: "Rivas",
       duracion: "2 días",
       precio: "$85/día",
       rating: 4.8,
       actividades: ["Trabajo en huertos", "Elaboración de compost", "Cocina con ingredientes frescos", "Yoga al amanecer"],
       beneficios: ["Agricultura ecológica", "Bienestar personal", "Conexión con la tierra"]
+    },
+    {
+      titulo: "Aldea Pescadora Las Mercedes",
+      descripcion: "Vive como un pescador tradicional en las costas del Pacífico",
+      imagen: "https://images.unsplash.com/photo-1749584550858-f7fa4ea89c41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZW50cmFsJTIwYW1lcmljYSUyMGZpc2hpbmclMjB2aWxsYWdlfGVufDF8fHx8MTc1NzU3NDQwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Chinandega",
+      duracion: "2 días",
+      precio: "$95/día",
+      rating: 4.6,
+      actividades: ["Pesca artesanal", "Reparación de redes", "Preparación de pescado", "Navegación tradicional"],
+      beneficios: ["Preservación marina", "Tradiciones pesqueras", "Economía local"]
+    },
+    {
+      titulo: "Hacienda Ganadera El Paraíso",
+      descripcion: "Experimenta la vida del vaquero nicaragüense en las llanuras",
+      imagen: "https://images.unsplash.com/photo-1737466109813-edfe3c7e2b17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBjYXR0bGUlMjByYW5jaCUyMGNvdW50cnlzaWRlfGVufDF8fHx8MTc1NzU3NDQwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Boaco",
+      duracion: "3 días",
+      precio: "$110/día",
+      rating: 4.8,
+      actividades: ["Ordeño de vacas", "Cabalgatas", "Elaboración de queso", "Rodeo tradicional"],
+      beneficios: ["Ganadería sostenible", "Tradiciones gauchescas", "Productos lácteos artesanales"]
+    },
+    {
+      titulo: "Cooperativa de Mujeres Tejedoras",
+      descripcion: "Aprende el arte ancestral del tejido con mujeres artesanas",
+      imagen: "https://images.unsplash.com/photo-1695044966923-129f3bc5c906?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBydXJhbCUyMHZpbGxhZ2UlMjBjb21tdW5pdHl8ZW58MXx8fHwxNzU3NTc0Mzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Masaya",
+      duracion: "1 día",
+      precio: "$55/persona",
+      rating: 4.9,
+      actividades: ["Taller de tejido", "Teñido natural", "Historia oral", "Comida comunitaria"],
+      beneficios: ["Empoderamiento femenino", "Arte ancestral", "Autonomía económica"]
+    },
+    {
+      titulo: "Refugio de Vida Silvestre Comunitario",
+      descripcion: "Protege la biodiversidad junto a guardabosques locales",
+      imagen: "https://images.unsplash.com/photo-1655751410674-91ff015bc076?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBtb3VudGFpbiUyMHZpbGxhZ2UlMjBlY28lMjB0b3VyaXNtfGVufDF8fHx8MTc1NzU3NDQxMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Río San Juan",
+      duracion: "4 días",
+      precio: "$140/día",
+      rating: 4.7,
+      actividades: ["Monitoreo fauna", "Reforestación", "Observación aves", "Investigación científica"],
+      beneficios: ["Conservación ambiental", "Educación ecológica", "Ciencia ciudadana"]
+    },
+    {
+      titulo: "Finca Agroecológica Familiar",
+      descripcion: "Descubre técnicas ancestrales de agricultura sin químicos",
+      imagen: "https://images.unsplash.com/photo-1679824244521-6d2c7ae496e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBvcmdhbmljJTIwZmFybSUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc1NzU3NDQwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Nueva Segovia",
+      duracion: "2 días",
+      precio: "$80/día",
+      rating: 4.5,
+      actividades: ["Siembra tradicional", "Control biológico", "Medicina natural", "Cocina solar"],
+      beneficios: ["Agricultura ancestral", "Soberanía alimentaria", "Salud familiar"]
+    },
+    {
+      titulo: "Comunidad Indígena Chorotega",
+      descripcion: "Conecta con las raíces precolombinas de Nicaragua",
+      imagen: "https://images.unsplash.com/photo-1719852255246-898f965e04e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjB0cmFkaXRpb25hbCUyMGNyYWZ0cyUyMHBvdHRlcnl8ZW58MXx8fHwxNzU3NTc0NDA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Rivas",
+      duracion: "1 día",
+      precio: "$75/persona",
+      rating: 4.8,
+      actividades: ["Cerámica ancestral", "Rituales tradicionales", "Lengua indígena", "Medicina tradicional"],
+      beneficios: ["Preservación cultural", "Identidad indígena", "Conocimiento ancestral"]
+    },
+    {
+      titulo: "Apiario Comunitario San Marcos",
+      descripcion: "Aprende sobre apicultura sostenible y productos de la colmena",
+      imagen: "https://images.unsplash.com/photo-1695044966923-129f3bc5c906?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBydXJhbCUyMHZpbGxhZ2UlMjBjb21tdW5pdHl8ZW58MXx8fHwxNzU3NTc0Mzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Carazo",
+      duracion: "1 día",
+      precio: "$60/persona",
+      rating: 4.6,
+      actividades: ["Manejo de colmenas", "Extracción de miel", "Elaboración de cera", "Productos apícolas"],
+      beneficios: ["Polinización natural", "Productos orgánicos", "Cooperativismo"]
+    },
+    {
+      titulo: "Vivero Forestal Comunitario",
+      descripcion: "Participa en la reforestación y conservación de bosques nativos",
+      imagen: "https://images.unsplash.com/photo-1655751410674-91ff015bc076?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBtb3VudGFpbiUyMHZpbGxhZ2UlMjBlY28lMjB0b3VyaXNtfGVufDF8fHx8MTc1NzU3NDQxMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Jinotega",
+      duracion: "2 días",
+      precio: "$70/día",
+      rating: 4.7,
+      actividades: ["Germinación de semillas", "Trasplante", "Reforestación", "Educación ambiental"],
+      beneficios: ["Restauración ecológica", "Cambio climático", "Bosques nativos"]
+    },
+    {
+      titulo: "Escuela Rural Multigrado",
+      descripcion: "Apoya la educación rural enseñando a niños campesinos",
+      imagen: "https://images.unsplash.com/photo-1695044966923-129f3bc5c906?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWNhcmFndWElMjBydXJhbCUyMHZpbGxhZ2UlMjBjb21tdW5pdHl8ZW58MXx8fHwxNzU3NTc0Mzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      ubicacion: "Madriz",
+      duracion: "3 días",
+      precio: "$45/día",
+      rating: 4.9,
+      actividades: ["Clases de apoyo", "Juegos educativos", "Huerto escolar", "Biblioteca comunitaria"],
+      beneficios: ["Educación rural", "Desarrollo infantil", "Futuro comunitario"]
     }
   ];
 
@@ -72,7 +171,7 @@ export default function TurismoRural() {
         <section 
           className="text-white py-16"
           style={{
-            background: `linear-gradient(to right, #0cc334ff, #0cf39aff,  #0cf3ccff)`
+            background: `linear-gradient(to right, #09a72bff, #0bd5b3ff)`
           }}
         >
           <div className="container mx-auto px-4">
@@ -115,7 +214,7 @@ export default function TurismoRural() {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-center mb-12">Experiencias Rurales</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
               {experienciasRurales.map((experiencia, index) => (
                 <Card key={index} className="overflow-hidden">
                   <div className="relative h-48">
