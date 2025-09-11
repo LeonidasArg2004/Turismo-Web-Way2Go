@@ -35,9 +35,22 @@ export default function App() {
   }, []);
 
   const navigateToPage = (page: string) => {
-    setCurrentPage(page);
-    const url = page === "Inicio" ? "/" : `/?page=${encodeURIComponent(page)}`;
-    window.history.pushState(null, "", url);
+    // Separar la página del hash si existe
+    const [pageName, hash] = page.includes('#') ? page.split('#') : [page, ''];
+    
+    setCurrentPage(pageName);
+    const url = pageName === "Inicio" ? "/" : `/?page=${encodeURIComponent(pageName)}`;
+    window.history.pushState(null, "", url + (hash ? `#${hash}` : ''));
+    
+    // Si hay un hash, navegar a esa sección después de un breve delay
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   const renderCurrentPage = () => {

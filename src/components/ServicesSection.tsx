@@ -45,6 +45,7 @@ export default function ServicesSection({ onNavigate }: ServicesSectionProps) {
                     className="w-full"
                     onClick={() => {
                       let pageToNavigate = "";
+                      let hash = "";
                       
                       switch (service.title) {
                         case "Transporte Confiable":
@@ -52,9 +53,11 @@ export default function ServicesSection({ onNavigate }: ServicesSectionProps) {
                           break;
                         case "Hospedaje seguro":
                           pageToNavigate = "Hospedaje & Restaurantes";
+                          hash = "#hospedaje";
                           break;
                         case "Restaurantes locales":
                           pageToNavigate = "Hospedaje & Restaurantes";
+                          hash = "#restaurantes";
                           break;
                         case "Experiencias culturales":
                           pageToNavigate = "Experiencias";
@@ -66,7 +69,7 @@ export default function ServicesSection({ onNavigate }: ServicesSectionProps) {
                           return;
                       }
                       
-                      onNavigate(pageToNavigate);
+                      onNavigate(pageToNavigate + hash);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >

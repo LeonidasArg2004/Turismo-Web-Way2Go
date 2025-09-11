@@ -198,4 +198,4 @@ export default function Experiencias() {
       <Footer />
     </div>
   );
-}1
+}
