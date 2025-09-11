@@ -38,20 +38,16 @@ export default function App() {
   }, []);
 
   const navigateToPage = (page: string) => {
-    // Separar la página del hash si existe
     const [pageName, hash] = page.includes('#') ? page.split('#') : [page, ''];
     
     setCurrentPage(pageName);
     const url = pageName === "Inicio" ? "/" : `/?page=${encodeURIComponent(pageName)}`;
     window.history.pushState(null, "", url + (hash ? `#${hash}` : ''));
     
-    // Si hay un hash, navegar a esa sección después de un breve delay
     if (hash) {
       setTimeout(() => {
         const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   };
@@ -94,12 +90,16 @@ export default function App() {
   const pagesWithoutHeader = ["Inicio de Sesión", "Registro"];
   const showHeader = !pagesWithoutHeader.includes(currentPage);
 
+  // 🟢 Páginas donde NO queremos mostrar el chatbot
+  const pagesWithoutChatbot = ["Inicio de Sesión", "Registro"];
+  const showChatbot = !pagesWithoutChatbot.includes(currentPage);
+
   return (
     <div className="min-h-screen">
       {showHeader && <Header currentPage={currentPage} onNavigate={navigateToPage} />}
       {renderCurrentPage()}
-      {/* 👇 Chatbot flotante en toda la aplicación */}
-      <Chatbot />
+      {/* 👇 Mostrar chatbot solo si la página lo permite */}
+      {showChatbot && <Chatbot />}
     </div>
   );
 }
