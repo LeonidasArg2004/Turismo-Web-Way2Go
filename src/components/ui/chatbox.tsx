@@ -63,7 +63,7 @@ const Chatbot: React.FC = () => {
           }}
         >
           <div style={{ background: '#007bff', color: '#fff', padding: '10px', textAlign: 'center' }}>
-            Chatbot
+            Habla con Wayo
           </div>
           <div
             style={{
