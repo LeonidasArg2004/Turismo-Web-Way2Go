@@ -63,7 +63,12 @@ export default function Experiencias() {
     <div className="min-h-screen">
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        <section 
+          className="text-white py-16"
+          style={{
+            background: `linear-gradient(to right, #32CD32, #1E90FF)`
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center">
               <h1 className="mb-4">Experiencias Únicas</h1>
@@ -108,7 +113,10 @@ export default function Experiencias() {
                       {experiencia.categoria}
                     </Badge>
                     <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full">
-                      <experiencia.icono className="h-5 w-5 text-green-600" />
+                      <experiencia.icono 
+                        className="h-5 w-5" 
+                        style={{ color: '#32CD32' }}
+                      />
                     </div>
                     <div className="absolute bottom-4 right-4 flex items-center gap-1 bg-black/50 text-white px-2 py-1 rounded">
                       <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
@@ -132,7 +140,12 @@ export default function Experiencias() {
                         <span>{experiencia.dificultad}</span>
                       </div>
                       <div className="text-right">
-                        <span className="text-2xl text-green-600">{experiencia.precio}</span>
+                        <span 
+                          className="text-2xl"
+                          style={{ color: '#32CD32' }}
+                        >
+                          {experiencia.precio}
+                        </span>
                       </div>
                     </div>
                     
@@ -141,14 +154,22 @@ export default function Experiencias() {
                       <ul className="text-xs text-gray-600 space-y-1">
                         {experiencia.incluye.map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                            <div 
+                              className="w-1 h-1 rounded-full"
+                              style={{ backgroundColor: '#32CD32' }}
+                            ></div>
                             {item}
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <Button className="w-full">Reservar Experiencia</Button>
+                    <Button 
+                      className="w-full text-white"
+                      style={{ backgroundColor: '#FF6347' }}
+                    >
+                      Reservar Experiencia
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -164,11 +185,17 @@ export default function Experiencias() {
               Contacta con nuestros especialistas en turismo para crear una experiencia 
               personalizada que se adapte perfectamente a tus intereses y preferencias.
             </p>
-            <Button size="lg">Crear Experiencia Personalizada</Button>
+            <Button 
+              size="lg"
+              className="text-white"
+              style={{ backgroundColor: '#1E90FF' }}
+            >
+              Crear Experiencia Personalizada
+            </Button>
           </div>
         </section>
       </main>
       <Footer />
     </div>
   );
-}
+}1
