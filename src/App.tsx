@@ -17,6 +17,9 @@ import Ofertas from "./pages/Ofertas";
 import FAQ from "./pages/FAQ";
 import TransporteConfiable from "./pages/TransporteConfiable";
 
+// 🟢 Importar Chatbot
+import Chatbot from './components/ui/chatbox';
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState("Inicio");
 
@@ -82,6 +85,8 @@ export default function App() {
     <div className="min-h-screen">
       {showHeader && <Header currentPage={currentPage} onNavigate={navigateToPage} />}
       {renderCurrentPage()}
+      {/* 👇 Chatbot flotante en toda la aplicación */}
+      <Chatbot />
     </div>
   );
 }
