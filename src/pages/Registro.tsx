@@ -46,7 +46,6 @@ export default function Registro({ onNavigate }: RegistroProps) {
     }
 
     // Aquí iría la lógica de registro
-    console.log("Datos de registro:", formData);
     
     // Simular registro exitoso y redirigir a inicio de sesión
     alert("¡Registro exitoso! Ahora puedes iniciar sesión.");

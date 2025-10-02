@@ -1,8 +1,8 @@
+import React from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
-import way2GoLogo from 'figma:asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png';
 
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src={way2GoLogo} 
+                src="/asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png" 
                 alt="Way2Go Logo" 
                 className="h-10 w-auto"
               />

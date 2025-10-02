@@ -19,7 +19,6 @@ export default function InicioSesion({ onNavigate }: InicioSesionProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aquí iría la lógica de autenticación
-    console.log("Intentando iniciar sesión con:", { email, password });
     
     // Por ahora, simular un login exitoso
     alert("¡Inicio de sesión exitoso! (simulado)");
