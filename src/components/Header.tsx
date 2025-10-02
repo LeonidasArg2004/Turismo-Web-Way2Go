@@ -1,7 +1,7 @@
+import React from "react";
 import { Button } from "./ui/button";
 import { Menu, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import way2GoLogo from 'figma:asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png';
 
 interface HeaderProps {
   currentPage: string;
@@ -52,7 +52,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             onClick={handleLogoClick}
           >
             <img 
-              src={way2GoLogo} 
+              src="/asset/c364adb80cd90b771ae6c4e8f69e06df8e8648db.png" 
               alt="Way2Go Logo" 
               className="h-12 w-auto"
             />

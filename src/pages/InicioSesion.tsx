@@ -20,6 +20,7 @@ export default function InicioSesion({ onNavigate }: InicioSesionProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+<<<<<<< HEAD
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       alert("¡Inicio de sesión exitoso!");
@@ -30,6 +31,12 @@ export default function InicioSesion({ onNavigate }: InicioSesionProps) {
     } catch (error: any) {
       alert("Error al iniciar sesión: " + error.message);
     }
+=======
+    // Aquí iría la lógica de autenticación
+    
+    // Por ahora, simular un login exitoso
+    alert("¡Inicio de sesión exitoso! (simulado)");
+>>>>>>> 311b159ea03f368a38174b6702e35d44344e817a
   };
 
   const handleRegisterClick = () => {

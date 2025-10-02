@@ -47,6 +47,7 @@ export default function Registro({ onNavigate }: RegistroProps) {
       return;
     }
 
+<<<<<<< HEAD
     try {
       // 1. Crear usuario en Firebase Auth con email y contraseña
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
@@ -70,6 +71,15 @@ export default function Registro({ onNavigate }: RegistroProps) {
       }
     } catch (error: any) {
       alert("Error al registrar usuario: " + error.message);
+=======
+    // Aquí iría la lógica de registro
+    
+    // Simular registro exitoso y redirigir a inicio de sesión
+    alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+    
+    if (onNavigate) {
+      onNavigate("Inicio de Sesión");
+>>>>>>> 311b159ea03f368a38174b6702e35d44344e817a
     }
   };
 

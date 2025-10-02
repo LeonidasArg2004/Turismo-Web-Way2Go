@@ -1,6 +1,5 @@
 // src/components/ui/Chatbot.tsx
 import React, { useState, useEffect } from 'react';
-import iconoChat from "../../assets/iconochat1.0.png";
 
 type ButtonOption = {
   label: string;
@@ -144,7 +143,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ navigateToPage }) => {
         onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
       >
         <img 
-          src={iconoChat}
+          src={"/public/assets/iconochat1.0.png"}
           alt="Chatbot" 
           style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
         />
