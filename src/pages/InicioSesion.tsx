@@ -6,6 +6,8 @@ import { Label } from "../components/ui/label";
 import { Eye, EyeOff, Mail, Lock, LogIn, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 interface InicioSesionProps {
   onNavigate?: (page: string) => void;
@@ -16,13 +18,18 @@ export default function InicioSesion({ onNavigate }: InicioSesionProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica de autenticación
-    console.log("Intentando iniciar sesión con:", { email, password });
-    
-    // Por ahora, simular un login exitoso
-    alert("¡Inicio de sesión exitoso! (simulado)");
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      alert("¡Inicio de sesión exitoso!");
+      console.log("Usuario:", userCredential.user);
+      if (onNavigate) {
+        onNavigate("Inicio"); // Redirige a la página principal
+      }
+    } catch (error: any) {
+      alert("Error al iniciar sesión: " + error.message);
+    }
   };
 
   const handleRegisterClick = () => {

@@ -4,9 +4,13 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
-import { User, Mail, Phone, Calendar, MapPin, Users, ArrowLeft } from "lucide-react";
+import { User, Mail, Phone, Calendar, MapPin, Users, ArrowLeft, Lock } from "lucide-react";
 import { useState } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 interface RegistroProps {
   onNavigate?: (page: string) => void;
@@ -20,7 +24,8 @@ export default function Registro({ onNavigate }: RegistroProps) {
     sexo: "",
     nacionalidad: "",
     telefono: "",
-    email: ""
+    email: "",
+    password: ""
   });
 
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
@@ -29,30 +34,42 @@ export default function Registro({ onNavigate }: RegistroProps) {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validar que todos los campos estén llenos
+
     const camposRequeridos = Object.values(formData).every(campo => campo.trim() !== "");
-    
     if (!camposRequeridos) {
       alert("Por favor, completa todos los campos.");
       return;
     }
-
     if (!aceptaTerminos) {
       alert("Debes aceptar los términos y condiciones.");
       return;
     }
 
-    // Aquí iría la lógica de registro
-    console.log("Datos de registro:", formData);
-    
-    // Simular registro exitoso y redirigir a inicio de sesión
-    alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
-    
-    if (onNavigate) {
-      onNavigate("Inicio de Sesión");
+    try {
+      // 1. Crear usuario en Firebase Auth con email y contraseña
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = userCredential.user;
+
+      // 2. Guardar datos extra en Firestore usando el uid
+      await addDoc(collection(db, "usuarios"), {
+        nombre: formData.nombre,
+        apellido: formData.apellido,
+        fechaNacimiento: formData.fechaNacimiento,
+        sexo: formData.sexo,
+        nacionalidad: formData.nacionalidad,
+        telefono: formData.telefono,
+        email: formData.email,
+        uid: user.uid
+      });
+
+      alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+      if (onNavigate) {
+        onNavigate("Inicio de Sesión");
+      }
+    } catch (error: any) {
+      alert("Error al registrar usuario: " + error.message);
     }
   };
 
@@ -240,6 +257,23 @@ export default function Registro({ onNavigate }: RegistroProps) {
                         className="pl-10"
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Contraseña */}
+                  <div className="space-y-2">
+                    <Label htmlFor="password">Contraseña *</Label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input 
+                        id="password"
+                        type="password"
+                        placeholder="Tu contraseña"
+                        className="pl-10"
+                        value={formData.password}
+                        onChange={(e) => handleInputChange("password", e.target.value)}
                         required
                       />
                     </div>
